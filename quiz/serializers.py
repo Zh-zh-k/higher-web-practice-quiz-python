@@ -12,16 +12,16 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ["id", "title"]
 
 
-class QuestionSerializer(serializers.ModelSerializer):
-    """Сериализатор для вопросов"""
+class QuizSerializer(serializers.ModelSerializer):
+    """Сериализатор для квизов"""
 
     class Meta:
         model = Quiz
         fields = ["id", "title", "description"]
 
 
-class QuizSerializer(serializers.ModelSerializer):
-    """Сериализатор для квизов"""
+class QuestionSerializer(serializers.ModelSerializer):
+    """Сериализатор для вопросов"""
 
     class Meta:
         model = Question

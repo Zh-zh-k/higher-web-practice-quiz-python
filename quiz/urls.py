@@ -36,13 +36,13 @@ Quiz
 
 # Сюда добавляем все пути и их обработчики
 urlpatterns = [
-    path("category/",
+    path("category",
          category.CategoryListCreateView.as_view(),
-         name="category-list-create"),
+         name="category-create"),
     path("category/<int:pk>/",
          category.CategoryDetailView.as_view(),
          name="category-detail"),
-    path("quiz/", quiz.QuizListCreateView.as_view(), name="quiz-list-create"),
+    path("quiz", quiz.QuizListCreateView.as_view(), name="quiz-create"),
     path("quiz/<int:pk>/", quiz.QuizDetailView.as_view(), name="quiz-detail"),
     path("quiz/by_title/<str:title>/",
          quiz.QuizByTitleView.as_view(),
@@ -50,9 +50,9 @@ urlpatterns = [
     path("quiz/<int:pk>/random_question/",
          quiz.QuizRandomQuestionView.as_view(),
          name="quiz-random-question"),
-    path("question/",
+    path("question",
          question.QuestionListCreateView.as_view(),
-         name="question-list-create"),
+         name="question-create"),
     path("question/<int:pk>/",
          question.QuestionDetailView.as_view(),
          name="question-detail"),
