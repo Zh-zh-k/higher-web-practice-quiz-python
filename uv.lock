@@ -250,7 +250,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "django", specifier = ">=5.2.6" },
+    { name = "django" },
     { name = "djangorestframework", specifier = ">=3.16.1" },
     { name = "drf-yasg", specifier = ">=1.21.10" },
     { name = "markdown", specifier = ">=3.9" },
