@@ -1,5 +1,7 @@
 import pytest
 from django.urls import reverse
+from rest_framework import status
+
 from quiz.models import Category
 
 
@@ -13,7 +15,7 @@ class TestCategoryAPI:
             {"title": "History"},
             content_type="application/json",
         )
-        assert response.status_code == 201
+        assert response.status_code == status.HTTP_201_CREATED
 
     def test_get_category(self, client):
         category = Category.objects.create(title="Science")
@@ -21,7 +23,7 @@ class TestCategoryAPI:
         url = reverse("category-detail", kwargs={"pk": category.id})
         response = client.get(url)
 
-        assert response.status_code == 200
+        assert response.status_code == status.HTTP_200_OK
         assert response.json()["title"] == "Science"
 
     def test_delete_category(self, client):
@@ -30,4 +32,4 @@ class TestCategoryAPI:
         url = reverse("category-detail", kwargs={"pk": category.id})
         response = client.delete(url)
 
-        assert response.status_code == 204
+        assert response.status_code == status.HTTP_204_NO_CONTENT

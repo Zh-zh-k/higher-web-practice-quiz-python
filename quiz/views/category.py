@@ -11,7 +11,7 @@ category_service = CategoryService()
 
 
 class CategoryListCreateView(APIView):
-    """GET /api/category, POST /api/category"""
+    """GET /api/category, POST /api/category."""
 
     def get(self, request):
         categories = category_service.list_categories()
@@ -31,7 +31,7 @@ class CategoryListCreateView(APIView):
 
 
 class CategoryDetailView(APIView):
-    """GET, PUT, DELETE /api/category/<id>"""
+    """GET, PUT, DELETE /api/category/<id>."""
 
     def get(self, request, pk):
         category = category_service.get_category(pk)

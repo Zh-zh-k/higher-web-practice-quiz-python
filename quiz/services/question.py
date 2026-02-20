@@ -3,8 +3,10 @@
 import random
 from django.shortcuts import get_object_or_404
 
+from core.constants import CATEGORY_FIELD
 from quiz.dao import AbstractQuestionService
 from quiz.models import Question, Quiz, Category
+from quiz.utils import update_instance
 
 
 class QuestionService(AbstractQuestionService):
@@ -24,7 +26,7 @@ class QuestionService(AbstractQuestionService):
 
     def create_question(self, quiz_id: int, data: dict) -> Question:
         quiz = get_object_or_404(Quiz, id=quiz_id)
-        category = get_object_or_404(Category, id=data.get("category"))
+        category = get_object_or_404(Category, id=data.get(CATEGORY_FIELD))
 
         question = Question.objects.create(
             quiz=quiz,
@@ -40,21 +42,16 @@ class QuestionService(AbstractQuestionService):
         return question
 
     def update_question(self, question_id: int, data: dict) -> Question:
-        question = get_object_or_404(Question, id=question_id)
+        if CATEGORY_FIELD in data:
+            data[CATEGORY_FIELD] = get_object_or_404(
+                Category,
+                id=data[CATEGORY_FIELD],
+            )
 
-        for field, value in data.items():
-            if field == "category":
-                category = get_object_or_404(Category, id=value)
-                setattr(question, "category", category)
-            else:
-                setattr(question, field, value)
-
-        question.save()
-        return question
+        return update_instance(Question, question_id, data)
 
     def delete_question(self, question_id: int) -> None:
-        question = get_object_or_404(Question, id=question_id)
-        question.delete()
+        get_object_or_404(Question, id=question_id).delete()
 
     def check_answer(self, question_id: int, answer: str) -> bool:
         question = get_object_or_404(Question, id=question_id)
@@ -64,6 +61,6 @@ class QuestionService(AbstractQuestionService):
         questions = Question.objects.filter(quiz_id=quiz_id)
 
         if not questions.exists():
-            raise Question.DoesNotExist("No questions found for this quiz.")
+            raise Question.DoesNotExist("Вопросы для квиза не найдены")
 
         return random.choice(list(questions))

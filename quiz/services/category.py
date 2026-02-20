@@ -15,7 +15,8 @@ class CategoryService(AbstractCategoryService):
         return get_object_or_404(Category, id=category_id)
 
     def create_category(self, title: str) -> Category:
-        return Category.objects.create(title=title)
+        category, _ = Category.objects.get_or_create(title=title)
+        return category
 
     def update_category(self, category_id: int, data: dict) -> Category:
         category = get_object_or_404(Category, id=category_id)
@@ -27,5 +28,4 @@ class CategoryService(AbstractCategoryService):
         return category
 
     def delete_category(self, category_id: int) -> None:
-        category = get_object_or_404(Category, id=category_id)
-        category.delete()
+        get_object_or_404(Category, id=category_id).delete()

@@ -6,7 +6,6 @@ from .models import Category, Quiz, Question
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "created_at")
     search_fields = ("title",)
-    ordering = ("id",)
 
 
 @admin.register(Quiz)
