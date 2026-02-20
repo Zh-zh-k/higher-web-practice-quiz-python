@@ -1,6 +1,6 @@
 import pytest
-
 from conftest import TEST_CATEGORY_TITLE, UPDATED_CATEGORY_TITLE
+
 from quiz.models import Category
 
 

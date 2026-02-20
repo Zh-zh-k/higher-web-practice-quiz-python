@@ -1,11 +1,12 @@
 """Модуль с реализацией сервиса вопросов"""
 
 import random
+
 from django.shortcuts import get_object_or_404
 
 from core.constants import CATEGORY_FIELD
 from quiz.dao import AbstractQuestionService
-from quiz.models import Question, Quiz, Category
+from quiz.models import Category, Question, Quiz
 from quiz.utils import update_instance
 
 

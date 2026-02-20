@@ -2,7 +2,6 @@ import pytest
 
 from quiz.models import Category
 
-
 TEST_CATEGORY_TITLE = "Test Category"
 UPDATED_CATEGORY_TITLE = "Updated Category"
 

@@ -3,7 +3,7 @@
 from rest_framework import serializers
 
 from core.constants import MIN_OPTIONS
-from quiz.models import Category, Quiz, Question
+from quiz.models import Category, Question, Quiz
 
 
 class CategorySerializer(serializers.ModelSerializer):

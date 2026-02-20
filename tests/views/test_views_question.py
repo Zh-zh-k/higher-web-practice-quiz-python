@@ -1,6 +1,7 @@
 import pytest
 from django.urls import reverse
-from quiz.models import Category, Quiz, Question, Difficulty
+
+from quiz.models import Category, Difficulty, Question, Quiz
 
 
 @pytest.mark.django_db

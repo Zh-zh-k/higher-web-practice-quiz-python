@@ -1,7 +1,8 @@
 """Модуль c роутингом"""
 
 from django.urls import path
-from quiz.views import category, quiz, question
+
+from quiz.views import category, question, quiz
 
 """
 Category

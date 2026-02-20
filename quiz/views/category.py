@@ -1,11 +1,11 @@
 """Модуль с контроллерами для категорий"""
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from quiz.services.category import CategoryService
 from quiz.serializers import CategorySerializer
+from quiz.services.category import CategoryService
 
 category_service = CategoryService()
 

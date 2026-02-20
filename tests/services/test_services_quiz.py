@@ -1,4 +1,5 @@
 import pytest
+
 from quiz.models import Quiz
 from quiz.services.quiz import QuizService
 

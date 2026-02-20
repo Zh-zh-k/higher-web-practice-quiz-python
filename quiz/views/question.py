@@ -1,11 +1,11 @@
 """Модуль с контроллерами для вопросов"""
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from quiz.services.question import QuestionService
 from quiz.serializers import QuestionSerializer
+from quiz.services.question import QuestionService
 
 question_service = QuestionService()
 

@@ -1,15 +1,10 @@
 """Модуль c моделями приложения quiz"""
 
-from django.db import models
 from django.core.exceptions import ValidationError
+from django.db import models
 
-from core.constants import (
-    DIFFICULTY_MAX_LENGTH,
-    MIN_OPTIONS,
-    TITLE_MAX_LENGTH,
-    TEXT_MAX_LENGTH,
-    REPR_MAX_LENGTH
-)
+from core.constants import (DIFFICULTY_MAX_LENGTH, MIN_OPTIONS,
+                            REPR_MAX_LENGTH, TEXT_MAX_LENGTH, TITLE_MAX_LENGTH)
 
 
 class Category(models.Model):

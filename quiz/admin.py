@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Category, Quiz, Question
+
+from .models import Category, Question, Quiz
 
 
 @admin.register(Category)

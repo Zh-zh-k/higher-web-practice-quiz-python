@@ -1,5 +1,6 @@
 import pytest
-from quiz.models import Category, Quiz, Question, Difficulty
+
+from quiz.models import Category, Difficulty, Question, Quiz
 from quiz.services.question import QuestionService
 
 
